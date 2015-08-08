@@ -1,0 +1,13 @@
+{
+  "name": "NextBus App",
+  "version": "1.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+
+  }
+}
