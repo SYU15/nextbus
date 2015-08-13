@@ -1,8 +1,5 @@
-// var routePathsUrl = 'http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=sf-muni';
-// var routeListUrl = 'http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=sf-muni';
 var routeDirectionsUrl = 'http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=sf-muni&t=0';
 var routes = [];
-var colorArray = [];
 
 var getBuses = function(callback){
   $.ajax({
@@ -23,6 +20,8 @@ var parsedXML = function(xml, callback) {
     var vehicleData = {
       id: vehicles[i].id,
       routeTag: vehicles[i].getAttribute('routeTag'),
+      heading: vehicles[i].getAttribute('heading'),
+      dirTag: vehicles[i].getAttribute('dirTag'),
       lat: vehicles[i].getAttribute('lat'),
       lon: vehicles[i].getAttribute('lon')
     };
@@ -33,4 +32,4 @@ var parsedXML = function(xml, callback) {
 
 getBuses(makePoints);
 
-setInterval(function(){getBuses(null);}, 15000);
+setInterval(function(){getBuses(updatePoints);}, 15000);
