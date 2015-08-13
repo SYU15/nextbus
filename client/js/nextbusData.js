@@ -21,7 +21,6 @@ var parsedXML = function(xml, callback) {
       id: vehicles[i].id,
       routeTag: vehicles[i].getAttribute('routeTag'),
       heading: vehicles[i].getAttribute('heading'),
-      dirTag: vehicles[i].getAttribute('dirTag'),
       lat: vehicles[i].getAttribute('lat'),
       lon: vehicles[i].getAttribute('lon')
     };
@@ -32,4 +31,6 @@ var parsedXML = function(xml, callback) {
 
 getBuses(makePoints);
 
-setInterval(function(){getBuses(updatePoints);}, 15000);
+setInterval(function(){
+    getBuses(updatePoints);
+  }, 15000);

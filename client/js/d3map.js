@@ -1,6 +1,5 @@
-var width = 1280;
-var height = 1000;
-
+var width = window.innerWidth;
+var height = window.innerHeight;
 
 var mapFill = d3.scale.ordinal()
                 .domain([0, 10])
@@ -21,8 +20,9 @@ var mapBackground = d3.select('#backgroundMap')
 var tip = d3.tip()
             .attr('class', 'd3-tip')
             .html(function(d){
-              return '<b>Route:</b> '+ d.routeTag + '<br>' + '<b>Vehicle ID:</b> ' + d.id;
+              return '<b>Route: </b>'+ d.routeTag + '<br>' + '<b>Vehicle ID: </b>' + d.id;
             });
+
 mapBackground.call(tip);
 
 d3.json('../data/neighborhoods.json', function(json){
@@ -44,6 +44,9 @@ var makePoints = function(){
                 .append('rect')
                 .attr('width', 8)
                 .attr('height', 5)
+                .attr('class', function(d){
+                  return d.routeTag;
+                })
                 .style('fill', 'white')
                 .style('stroke', 'black')
                 .attr('transform', function(d){
@@ -54,8 +57,8 @@ var makePoints = function(){
 };
 
 var updatePoints = function() {
-    var svg = d3.selectAll('rect').data(routes);
-    svg.attr('transform', function(d){
-          return 'translate(' + projection([d.lon, d.lat]) + '),' + 'rotate(' + d.heading +')';
-       });       
+  var svg = d3.selectAll('rect').data(routes);
+  svg.attr('transform', function(d){
+        return 'translate(' + projection([d.lon, d.lat]) + '),' + 'rotate(' + d.heading +')';
+     });       
 };
