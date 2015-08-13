@@ -5,6 +5,7 @@
     "start": "node server/server.js"
   },
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "queue-async": "^1.0.7"
   }
 }

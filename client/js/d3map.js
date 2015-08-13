@@ -26,4 +26,16 @@ d3.json('../data/neighborhoods.json', function(json){
                   return fill(i*3);
                })
                .style('stroke', '#2F4F4F');
+
 });
+
+var makePoints = function(){
+  mapBackground
+    .selectAll('circle')
+    .data(routes)
+    .enter()
+    .append('circle')
+    .attr('r', 3)
+    .style('fill', 'red')
+    .attr("transform", function(d) {return "translate(" + projection([d.lon, d.lat]) + ")";});  
+};
