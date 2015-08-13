@@ -29,7 +29,7 @@ d3.json('../data/neighborhoods.json', function(json){
   mapBackground.selectAll('path')
                .data(json.features)
                .enter()
-               .append('path')
+               .insert('path')
                .attr('d', path)
                .style('fill', function(d, i){
                   return mapFill(i*3);
@@ -48,7 +48,7 @@ var makePoints = function(){
                   return d.routeTag;
                 })
                 .style('fill', 'white')
-                .style('stroke', 'black')
+                .style('stroke', '#2F4F4F')
                 .attr('transform', function(d){
                   return 'translate(' + projection([d.lon, d.lat]) + '),' + 'rotate(' + d.heading +')';
                 })
