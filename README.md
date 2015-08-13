@@ -13,4 +13,4 @@ Coding challenge using the NextBus XML feed
   - ``bower install``
 - Start the server
   - ``node server/server.js``
-- Migrate to localhost:8000 on your computer
+- Migrate to localhost:8000 on your browers

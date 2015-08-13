@@ -2,7 +2,8 @@
   padding: 1%;
 }
 .busOptions {
-height: 200px !important;
+  height: 200px !important;
+  margin-bottom: 10px;
 }
 .d3-tip {
   line-height: 1.4;
