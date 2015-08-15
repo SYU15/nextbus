@@ -65,5 +65,9 @@ var updatePoints = function() {
   //update position and rotation of buses
   buses.attr('transform', function(d){
         return 'translate(' + projection([d.lon, d.lat]) + '),' + 'rotate(' + d.heading +')';
-     });       
+     })
+       .attr('class', function(d){
+         return d.routeTag;
+     });
+     updateShowBuses();       
 };
