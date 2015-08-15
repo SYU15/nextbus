@@ -1,12 +1,12 @@
 var updateShowBuses = function() {
 
-  var selectedBuses = $('.busOptions :selected');
+  var $selectedBuses = $('.busOptions :selected');
 
-  if(selectedBuses.length > 0) {
+  if($selectedBuses.length > 0) {
     //hide all buses by default
     $('rect').hide();
     //iterate through selected options
-    selectedBuses.each(function (index, element) {
+    $selectedBuses.each(function (index, element) {
       //get value from html option, convert to class
       var busClass = '.' + $(this).attr('value');
       //show buses with selected class
