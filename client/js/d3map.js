@@ -69,5 +69,26 @@ var updatePoints = function() {
        .attr('class', function(d){
          return d.routeTag;
      });
-     updateShowBuses();       
+  
+  buses.enter()
+       .append('rect')
+       .append('rect')
+       .attr('width', 8)
+       .attr('height', 5)
+       .attr('class', function(d){
+         return d.routeTag;
+       })
+       .style('fill', 'white')
+       .style('stroke', '#2F4F4F')
+       //rotates bus using degree angle provided by NextBus
+       .attr('transform', function(d){
+         return 'translate(' + projection([d.lon, d.lat]) + '),' + 'rotate(' + d.heading +')';
+       })
+       //shows/hides tooltip on mouseover
+       .on('mouseover', tip.show)
+       .on('mouseout', tip.hide);
+
+  buses.exit().remove();
+  
+  updateShowBuses();       
 };
